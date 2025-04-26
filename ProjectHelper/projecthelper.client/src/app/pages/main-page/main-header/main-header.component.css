@@ -1,0 +1,51 @@
+.header {
+  width: 80%;
+  max-width: 1520px;
+  height: 60px;
+  background-color: var(--light-color);
+  box-shadow: 0 4px 4px var(--heder-shadow);
+  border-radius: 60px;
+  position: sticky;
+  top: 0; /* Обязательно для sticky */
+  z-index: 1000;
+  margin: 45px 20px 15px 20px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.nav {
+  display: grid; /* Включаем Grid для родителя */
+  grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
+  justify-items: center;
+  align-items: center;
+  gap: 150px;
+}
+
+.nav a {
+  color: var(--dark-color);
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: var(--letter-spacing);
+  font-size: var(--navigation-font-size);
+  display: inline-block;
+  min-width: 185px; /* одинаковая ширина для всех */
+  text-align: center;
+}
+
+.nav a:hover {
+  color: var(--accent-color);
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: var(--letter-spacing);
+  font-size: var(--navigation-font-size);
+}
+
+.central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

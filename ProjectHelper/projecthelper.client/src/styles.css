@@ -1,0 +1,15 @@
+@import "fonts.scss";
+
+:root{
+    --light-color: #fff;
+    --accent-color: #5C00DD;
+    --additional-color: #656565;
+    --dark-color: #000;
+    --heder-shadow: #00000025;
+    --letter-spacing: 5px;
+    --navigation-font-size: 24px;
+}
+
+body{
+    background: var(--light-color);
+}
