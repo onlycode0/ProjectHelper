@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MainHeaderComponent } from './pages/main-page/main-header/main-header.component';
+import { LogInComponent } from './pages/main-page/log-in/log-in.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MainHeaderComponent } from './pages/main-page/main-header/main-header.c
     MainPageComponent,
     AppComponent,
     MainHeaderComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

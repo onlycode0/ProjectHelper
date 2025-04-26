@@ -1,0 +1,43 @@
+<div class="log-form">
+  <div class="switcher-wrapper">
+    <div class="switcher">
+      <button
+        (click)="switchMode('login')"
+        [class.active]="currentMode === 'login'"
+      >
+        Вход
+      </button>
+      <button
+        (click)="switchMode('register')"
+        [class.active]="currentMode === 'register'"
+      >
+        Регистрация
+      </button>
+    </div>
+  </div>
+  <div class="log-template-form-wrapper">
+    <ng-container *ngIf="currentMode === 'login'; else registerTemplate">
+      <form class="log-template-form">
+        <h2>Вход</h2>
+        <div class="log-template-form-inputs">
+          <input class="log-input" type="text" placeholder="Email" />
+          <input class="log-input" type="password" placeholder="Пароль" />
+          <button class="compleate-btn log-btn" type="submit">Войти</button>
+        </div>
+      </form>
+    </ng-container>
+
+    <!-- Шаблон регистрации -->
+    <ng-template #registerTemplate>
+      <form class="log-template-form">
+        <h2>Регистрация</h2>
+        <div class="log-template-form-inputs">
+          <input class="log-input" type="text" placeholder="Имя" />
+          <input class="log-input" type="text" placeholder="Email" />
+          <input class="log-input" type="password" placeholder="Пароль" />
+          <button class="compleate-btn log-btn" type="submit">Зарегистрироваться</button>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+</div>

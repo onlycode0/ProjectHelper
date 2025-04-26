@@ -1,15 +1,69 @@
 @import "fonts.scss";
 
-:root{
-    --light-color: #fff;
-    --accent-color: #5C00DD;
-    --additional-color: #656565;
-    --dark-color: #000;
-    --heder-shadow: #00000025;
-    --letter-spacing: 5px;
-    --navigation-font-size: 24px;
+:root {
+  --light-color: #fff;
+  --accent-color: #5c00dd;
+  --additional-color: #656565;
+  --dark-color: #000;
+  --heder-shadow: #00000025;
+  --letter-spacing: 5px;
+  --width-content: 80%;
+  --block-borner-radius: 60px;
 }
 
-body{
-    background: var(--light-color);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--light-color);
+}
+
+h1 {
+  color: var(--dark-color);
+  letter-spacing: var(--letter-spacing);
+  font-size: 96px;
+  font-family: "Roboto";
+  font-weight: 900;
+  font-style: normal;
+}
+
+h2 {
+  color: var(--additional-color);
+  letter-spacing: var(--letter-spacing);
+  font-size: 32px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+}
+
+h3 {
+  letter-spacing: var(--letter-spacing);
+  font-size: 24px;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-style: normal;
+}
+
+.compleate-btn {
+  padding: 15px 15px;
+  border-radius: 90px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  font-weight: 300;
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: var(--letter-spacing);
+  color: var(--light-color);
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap; /* чтобы текст не переносился */
+}
+
+.compleate-btn:hover {
+  color: var(--accent-color);
+  background-color: var(--light-color);
+  border: 1px solid var(--accent-color);
 }

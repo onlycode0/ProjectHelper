@@ -1,0 +1,122 @@
+.log-form {
+  width: 650px;
+  height: 700px;
+  background-color: var(--light-color);
+  border-radius: var(--block-borner-radius);
+  box-shadow: 6px 6px 4px var(--heder-shadow);
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 30% 70%;
+}
+
+.switcher {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 0px; /* между кнопками можно добавить отступ */
+  width: 300px;
+  height: 50px;
+  background-color: var(--light-color);
+  border-radius: 90px;
+  border: 1px solid var(--dark-color);
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+.switcher-wrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center; /* <<< центрируем селектор по вертикали */
+  width: 100%;
+}
+
+.switcher button {
+  padding: 10px 20px;
+  border-radius: 90px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 300;
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 16px;
+  letter-spacing: var(--letter-spacing);
+  color: var(--dark-color);
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap; /* чтобы текст не переносился */
+}
+
+.switcher button:hover {
+  color: var(--accent-color);
+  letter-spacing: var(--letter-spacing);
+}
+
+.switcher button.active {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+  border-radius: 90px;
+}
+
+.log-template-form {
+  background-color: var(--light-color);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+}
+
+/* обертка формы */
+.log-template-form-wrapper {
+  width: 100%;
+  display: grid;
+  align-items: start; /* <<< выравниваем форму к верху своей зоны */
+}
+
+.log-template-form-inputs {
+  background-color: var(--light-color);
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.log-input {
+  width: 60%;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 200;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 90px;
+  outline: none; /* Убираем некрасивую синюю обводку */
+  transition: border-color 0.3s;
+}
+
+.log-input:focus {
+  border-color: var(--accent-color); /* Цвет рамки при фокусе */
+}
+
+/* Когда инпут не пустой, можно изменить цвет текста */
+.log-input:not(:placeholder-shown) {
+  color: var(--dark-color); /* Цвет текста, когда инпут не пустой */
+}
+
+/* Цвет текста в инпуте при фокусе */
+.log-input:focus:not(:placeholder-shown) {
+  color: var(--dark-color); /* Цвет текста, когда инпут не пустой и в фокусе */
+}
+
+.log-input::placeholder {
+  color: var(--additional-color); /* Цвет текста подсказки */
+  opacity: 0.7; /* Прозрачность подсказки */
+}
+
+.log-btn {
+  width: 60%;
+  margin-top: 10px;
+}
