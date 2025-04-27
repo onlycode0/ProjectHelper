@@ -9,6 +9,7 @@
   --letter-spacing: 5px;
   --width-content: 80%;
   --block-borner-radius: 60px;
+  --max-width: 1520px;
 }
 
 * {

@@ -1,6 +1,5 @@
 .header {
   width: var(--width-content);
-  max-width: 1520px;
   height: 60px;
   background-color: var(--light-color);
   box-shadow: 0 4px 4px var(--heder-shadow);
@@ -10,7 +9,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  margin: 45px 20px 15px 20px;
+  margin: 45px 0px 0px 0px;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -66,6 +65,7 @@
 }
 
 .central {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
