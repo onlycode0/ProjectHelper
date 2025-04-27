@@ -15,11 +15,10 @@ import { LogInComponent } from './pages/main-page/log-in/log-in.component';
     AppComponent,
     MainHeaderComponent,
     MainHeaderComponent,
-    LogInComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,LogInComponent 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@ import { MainHeaderComponent } from './pages/main-page/main-header/main-header.c
 
 const routes: Routes = [
   {
-    path: 'main-page',
+    path: '',
     component: MainPageComponent,
     children: []
   }
