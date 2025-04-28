@@ -1,0 +1,35 @@
+<div class="central">
+  <div class="header-zone">
+    <ng-container *ngIf="!isLoggedIn; else authorized">
+      <header class="header">
+        <div class="nav-wrapper">
+          <nav class="nav">
+            <a routerLink="/about">Технологии</a>
+            <a routerLink="/contacts">Контакты</a>
+            <a routerLink="/help">Помощь</a>
+          </nav>
+        </div>
+      </header>
+    </ng-container>
+
+    <ng-template #authorized>
+      <header class="header-auth">
+        <div class="header-inner">
+          <div class="header-left">
+            <button class="burger-btn" (click)="toggleMenu()">☰</button>
+          </div>
+        <div class="nav-wrapper">
+          <nav class="header-center nav-auth">
+            <a routerLink="/about">Техогии</a>
+            <a routerLink="/contacts">Кокты</a>
+            <a routerLink="/help">Пщь</a>
+          </nav>
+        </div>
+        <div class="header-right">
+          <button class="compleate-btn logout-btn" (click)="logout()">Выйти</button>
+        </div>
+      </div>
+      </header>
+    </ng-template>
+  </div>
+</div>
