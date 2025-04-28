@@ -1,18 +1,45 @@
-sidebar {
+.sidebar {
     position: fixed;
-    top: 60px; /* под хедером */
+    top: 120px; /* под хедером */
     left: -250px; /* скрыто слева */
     width: 250px;
-    height: 100%;
-    background-color: #444;
+    height: 80%;
+    background-color: var(--accent-color);
     color: white;
     padding: 20px;
+    border-radius: 60px;
     transition: left 0.3s ease;
     z-index: 999;
   }
   
   /* Когда сайдбар открыт */
   .sidebar.open {
-    left: 0;
+    left: 200px;
+  }
+  
+  .sidebar nav ul {
+    list-style: none; /* убираем маркеры */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* отступы между пунктами */
+  }
+  
+  .sidebar nav ul li a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 60px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+  }
+  
+  .sidebar nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* лёгкий подсвет при наведении */
+    transform: translateX(5px); /* лёгкий сдвиг вправо */
   }
   
