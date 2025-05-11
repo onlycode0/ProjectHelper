@@ -18,5 +18,6 @@ namespace ProjectHelper.Domain.Users
 
         public string CompanyId { get; set; }
 
+        public DateTime RegistrationDate { get; set; }
     }
 }
