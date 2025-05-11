@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjectHelper.Domain.Projects.Tasks
 {
-    public class IdeaTask: Task
+    public class Step
     {
-        public List<string> ChildrenTasks { get; set; }
+        public string Id { get; set; }
+
+        public List<string> TaskIds { get; set; } = new List<string>();
     }
 }
