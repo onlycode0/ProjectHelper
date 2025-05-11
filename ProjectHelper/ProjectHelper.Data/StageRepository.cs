@@ -21,6 +21,8 @@ namespace ProjectHelper.Data
             {
                 InteriorId = stage.InteriorId,
                 StepIds = stage.StepIds,
+                Name = stage.Name,
+                Description = stage.Description,
             });
             return;
         }

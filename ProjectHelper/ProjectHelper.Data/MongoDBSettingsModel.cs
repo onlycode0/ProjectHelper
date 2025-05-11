@@ -18,5 +18,7 @@
 
         public string StepsCollection { get; set; } = null!;
 
+        public string ProjectTasksCollection { get; set; } = null!;
+
     }
 }

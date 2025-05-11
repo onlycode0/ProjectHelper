@@ -11,6 +11,10 @@ namespace ProjectHelper.Domain.Projects
 
         public int InteriorId { get; set; }
 
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
         public List<string> StepIds { get; set; } = new List<string>();
     }
 }

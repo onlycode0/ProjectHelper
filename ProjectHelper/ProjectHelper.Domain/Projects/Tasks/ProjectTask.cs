@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ProjectHelper.Domain.Projects.Tasks
 {
-    public class Task
+    public class ProjectTask
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
