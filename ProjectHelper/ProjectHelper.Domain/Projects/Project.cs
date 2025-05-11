@@ -13,6 +13,8 @@ namespace ProjectHelper.Domain.Projects
 
         public string Name { get; set; }
 
+        public string Description { get; set; }
+
         public DateTime CreateDate { get; set; }
 
         public DateTime DeadLine { get; set; }
@@ -23,6 +25,6 @@ namespace ProjectHelper.Domain.Projects
 
         public List<string> DeveloperIds { get; set; } =  new List<string>();
 
-        public List<string> TaskIds { get; set; } = new List<string>();
+        public List<string> StageIds { get; set; } = new List<string>();
     }
 }
