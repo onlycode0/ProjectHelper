@@ -1,7 +1,12 @@
-﻿namespace ProjectHelper.Domain.Projects.Tasks
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace ProjectHelper.Domain.Projects.Tasks
 {
     public class Task
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         public string Name { get; set; }
@@ -18,8 +23,10 @@
 
         public string? AssignedEmployeeId { get; set; }   // ID сотрудника, которому назначена подзадача, или null, если не назначена
 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public DateTime? StartTime { get; set; }          // Когда задача должна начаться
 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public DateTime? EndTime { get; set; }
     }
 }

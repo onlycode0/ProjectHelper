@@ -1,7 +1,12 @@
-﻿namespace ProjectHelper.Domain.Users
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace ProjectHelper.Domain.Users
 {
     public class Developer
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         public string Name { get; set; }
@@ -12,6 +17,7 @@
 
         public string CompanyId { get; set; }
 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public DateTime RegistrationDate { get; set; }
 
         public List<DeveloperSkills> Skills { get; set; } = new List<DeveloperSkills>();
@@ -20,6 +26,7 @@
 
         public int DailyCapacity { get; set; }  //занятость
 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public Dictionary<DateTime, float> Schedule { get; set; } = new();  //расписание дата-колво часов
 
         public List<string> ProjectIds { get; set; } = new();
