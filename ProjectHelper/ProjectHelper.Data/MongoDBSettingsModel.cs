@@ -10,5 +10,13 @@
 
         public string DevelopersCollection { get; set; } = null!;
 
+        public string CompaniesCollection { get; set; } = null!;
+
+        public string ProjectsCollection { get; set; } = null!;
+
+        public string StagesCollection { get; set; } = null!;
+
+        public string StepsCollection { get; set; } = null!;
+
     }
 }
