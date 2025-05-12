@@ -20,14 +20,13 @@ namespace ProjectHelper.Domain.Users
         [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public DateTime RegistrationDate { get; set; }
 
-        public List<DeveloperSkills> Skills { get; set; } = new List<DeveloperSkills>();
+        public Dictionary<DeveloperSkills, SkillsLevel> Skills { get; set; } = new Dictionary<DeveloperSkills, SkillsLevel>();
 
         public int Experience { get; set; }
 
         public int DailyCapacity { get; set; }  //занятость
 
-        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
-        public Dictionary<DateTime, float> Schedule { get; set; } = new();  //расписание дата-колво часов
+        public Dictionary<DateTime, float> Schedule { get; set; } = new();         //расписание дата-колво часов
 
         public List<string> ProjectIds { get; set; } = new();
 

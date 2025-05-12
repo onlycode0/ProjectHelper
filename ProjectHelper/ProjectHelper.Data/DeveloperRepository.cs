@@ -4,7 +4,7 @@ using ProjectHelper.Domain.Users;
 
 namespace ProjectHelper.Data
 {
-    public class DeveloperRepository
+    public class DeveloperRepository: IDeveloperRepository
     {
         private readonly IMongoCollection<Developer> _developerRepository;
 
@@ -31,7 +31,7 @@ namespace ProjectHelper.Data
             return;
         }
 
-        public async Task<bool> DeveloperIsExists(string login)
+        public async Task<bool> UserIsExists(string login)
         {
             var filter = Builders<Developer>.Filter.Eq(u => u.Login, login);
             var Developer = await _developerRepository.Find(filter).FirstOrDefaultAsync();

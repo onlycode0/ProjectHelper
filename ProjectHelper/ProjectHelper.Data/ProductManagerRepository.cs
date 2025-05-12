@@ -4,7 +4,7 @@ using ProjectHelper.Domain.Users;
 
 namespace ProjectHelper.Data
 {
-    public class ProductManagerRepository
+    public class ProductManagerRepository: IProductManagerRepository
     {
         private readonly IMongoCollection<ProductManager> _productManagersRepository;
 
@@ -28,7 +28,7 @@ namespace ProjectHelper.Data
             return;
         }
 
-        public async Task<bool> ProductManagerIsExists(string login)
+        public async Task<bool>UserIsExists(string login)
         {
             var filter = Builders<ProductManager>.Filter.Eq(u => u.Login, login);
             var productManager = await _productManagersRepository.Find(filter).FirstOrDefaultAsync();
