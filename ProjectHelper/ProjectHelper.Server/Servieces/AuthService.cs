@@ -50,5 +50,27 @@ namespace ProjectHelper.Server.Servieces
                 RefreshToken = refreshToken
             };
         }
+
+        public TokenResponse? RefreshToken(string username, string refreshToken)
+        {
+            if (!_tokenStore.ValidateRefreshToken(username, refreshToken))
+                return null;
+
+            var accessToken = _tokenService.GenerateAccessToken(username);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            _tokenStore.SaveRefreshToken(username, newRefreshToken);
+
+            return new TokenResponse
+            {
+                AccessToken = accessToken,
+                RefreshToken = newRefreshToken
+            };
+        }
+
+        public void Logout(string username)
+        {
+            _tokenStore.RemoveRefreshToken(username);
+        }
     }
 }

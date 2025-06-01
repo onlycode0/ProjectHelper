@@ -15,7 +15,12 @@ namespace ProjectHelper.Server.Servieces
 
         public string GenerateAccessToken(string username)
         {
-            var claims = new[] { new Claim(ClaimTypes.Name, username) };
+            var userRole = username.StartsWith("dev.") ? "Developer" : "ProductManager";
+            var claims = new[] { 
+                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.Role, userRole)
+            };
+            
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 

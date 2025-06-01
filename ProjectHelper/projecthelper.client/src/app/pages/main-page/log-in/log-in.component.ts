@@ -33,13 +33,33 @@ export class LogInComponent {
   }
 
   login() {
-    // Здесь можно добавить проверку email и пароля
     if (this.email && this.password) {
-      console.log('Вход с email:', this.email, 'и паролем:', this.password);
-      this.authService.setEmail(this.email); // Сохраняем email через сервис
-      this.router.navigate(['/account']); // Замените '/account' на нужный путь
-    } else {
-      console.log('Ошибка при входе');
+      console.log('Attempting to login with:', this.email);
+      
+      this.authService.login({
+        login: this.email,
+        password: this.password
+      }).subscribe({
+        next: (success) => {
+          if (success) {
+            console.log('Login successful');
+            const userRole = this.authService.getCurrentUserRole();
+            console.log('User Role:', userRole);
+            this.authService.setEmail(this.email);
+            
+            // Перенаправляем на соответствующую страницу в зависимости от роли
+            if (userRole === 'Developer') {
+              this.router.navigate(['/developer-dashboard']);
+            } else {
+              this.router.navigate(['/account']);
+            }
+          }
+        },
+        error: (error) => {
+          console.error('Login failed:', error);
+          // Здесь можно добавить отображение ошибки пользователю
+        }
+      });
     }
   }
 }

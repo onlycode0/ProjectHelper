@@ -53,6 +53,35 @@ namespace ProjectHelper.Server.Controllers
             return Unauthorized();
         }
 
+        [HttpPost("refresh")]
+        [SwaggerOperation(Summary = "Обновление токена доступа")]
+        [SwaggerResponse(200, "Success")]
+        [SwaggerResponse(401, "Invalid refresh token")]
+        public IActionResult RefreshToken([FromBody] RefreshTokenRequest request)
+        {
+            var username = User.Identity?.Name;
+            if (string.IsNullOrEmpty(username))
+                return Unauthorized();
+
+            var token = _authService.RefreshToken(username, request.RefreshToken);
+            if (token == null)
+                return Unauthorized();
+
+            return Ok(token);
+        }
+
+        [HttpPost("logout")]
+        [SwaggerOperation(Summary = "Выход из системы")]
+        [SwaggerResponse(200, "Success")]
+        public IActionResult Logout()
+        {
+            var username = User.Identity?.Name;
+            if (!string.IsNullOrEmpty(username))
+            {
+                _authService.Logout(username);
+            }
+            return Ok();
+        }
     }
 
 }
