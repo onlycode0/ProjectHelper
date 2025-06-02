@@ -3,6 +3,7 @@ import { Router } from '@angular/router';  // Импортируем Router
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
+import { CompanyService } from '../../../services/company.service';
 
 @Component({
   selector: 'app-log-in',
@@ -20,7 +21,11 @@ export class LogInComponent {
   currentMode: 'login' | 'register' = 'login'; // По умолчанию вход
   registrationComplete: boolean = false; // Инициализация переменной с типом boolean
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private companyService: CompanyService
+  ) {}
 
   switchMode(mode: 'login' | 'register') {
     this.currentMode = mode;
@@ -47,11 +52,26 @@ export class LogInComponent {
             console.log('User Role:', userRole);
             this.authService.setEmail(this.email);
             
-            // Перенаправляем на соответствующую страницу в зависимости от роли
             if (userRole === 'Developer') {
               this.router.navigate(['/developer-dashboard']);
             } else {
-              this.router.navigate(['/account']);
+              // Для Product Manager проверяем наличие компании
+              this.companyService.getCompanyByUserId().subscribe({
+                next: (company) => {
+                  // Если компания есть, показываем приветствие
+                  this.router.navigate(['/welcome'], { 
+                    state: { companyName: company.name } 
+                  });
+                },
+                error: (error) => {
+                  // Если компании нет, перенаправляем на создание
+                  if (error.status === 404) {
+                    this.router.navigate(['/create-company']);
+                  } else {
+                    console.error('Error checking company:', error);
+                  }
+                }
+              });
             }
           }
         },

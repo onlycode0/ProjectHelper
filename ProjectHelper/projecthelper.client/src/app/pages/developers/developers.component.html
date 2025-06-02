@@ -1,0 +1,42 @@
+<div class="developers-page">
+  <button class="add-developer-btn" (click)="onAddDeveloper()">
+    <span class="plus">+</span>
+    Добавить разработчика
+  </button>
+  
+  <div class="developers-list" *ngIf="developers.length > 0; else noDevelopers">
+    <div class="developer-card" *ngFor="let developer of developers">
+      <div class="card-header">
+        <h3>{{developer.name}}</h3>
+        <button type="button" class="edit-btn" (click)="onEditDeveloper(developer)">
+          Редактировать
+        </button>
+      </div>
+      <div class="developer-info">
+        <p>Опыт: {{developer.experience}} лет</p>
+        <p>Занятость: {{developer.dailyCapacity}} ч/д</p>
+        <div class="skills">
+          <p>Навыки:</p>
+          <ul>
+            <li *ngFor="let skill of getSkills(developer)">
+              <span>{{skill.name}}</span>: <span>{{skill.level}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noDevelopers>
+    <div class="no-developers">
+      <p>У вас еще нет разработчиков...</p>
+    </div>
+  </ng-template>
+
+  <app-add-developer 
+    *ngIf="showAddForm"
+    [developer]="selectedDeveloper"
+    (close)="onCloseForm()"
+    (save)="onSaveDeveloper($event)">
+  </app-add-developer>
+</div> 

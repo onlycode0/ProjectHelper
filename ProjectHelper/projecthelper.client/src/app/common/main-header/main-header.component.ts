@@ -1,11 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { SidebarService } from '../../services/sidebar.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-header',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './main-header.component.html',
   styleUrl: './main-header.component.css',
 })

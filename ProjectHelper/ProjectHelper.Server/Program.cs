@@ -19,7 +19,8 @@ builder.Services.AddCors(options =>
             builder
                 .WithOrigins(
                     "http://localhost:50689",
-                    "http://localhost:64248"
+                    "http://localhost:64248",
+                    "http://localhost:64085"
                 ) // Разрешаем запросы с Angular
                 .AllowAnyMethod()
                 .AllowAnyHeader()

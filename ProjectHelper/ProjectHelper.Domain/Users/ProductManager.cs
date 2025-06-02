@@ -15,6 +15,7 @@ namespace ProjectHelper.Domain.Users
 
         public string Password { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         public string CompanyId { get; set; }
 
         [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]

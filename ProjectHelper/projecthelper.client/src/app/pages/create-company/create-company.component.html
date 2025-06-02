@@ -1,0 +1,18 @@
+<div class="create-company-container">
+  <form (ngSubmit)="createCompany()" #companyForm="ngForm" class="company-form">
+    <h2>Создание компании</h2>
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="companyName"
+        name="companyName"
+        required
+        placeholder="Название компании"
+        class="company-input"
+      />
+    </div>
+    <button type="submit" [disabled]="!companyForm.form.valid" class="create-btn">
+      Создать компанию
+    </button>
+  </form>
+</div> 

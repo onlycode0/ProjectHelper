@@ -4,7 +4,7 @@
   background-color: var(--light-color);
   box-shadow: 0 4px 4px var(--heder-shadow);
   border-radius: 60px;
-  position: fixed; /* <-- фиксируем */
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -21,7 +21,7 @@
   background-color: var(--accent-color);
   box-shadow: 0 4px 4px var(--heder-shadow);
   border-radius: 60px;
-  position: fixed; /* <-- фиксируем */
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -38,7 +38,7 @@
   height: 120px;
   background-color: var(--light-color);
   margin-bottom: 15px;
-  position: fixed; /* <-- фиксируем */
+  position: fixed;
   top: 0;
   z-index: 1000;
   display: grid;
@@ -56,7 +56,7 @@
 .header-inner {
   display: flex;
   width: 100%;
-  justify-content: space-between; /* растянуть */
+  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
 }
@@ -133,7 +133,7 @@
   font-size: 24px;
   justify-content: center;
   letter-spacing: var(--letter-spacing);
-  width: 205px; /* одинаковая ширина для всех */
+  width: 205px;
   text-align: center;
 }
 

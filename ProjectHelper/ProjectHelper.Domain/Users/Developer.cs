@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 
 namespace ProjectHelper.Domain.Users
 {
@@ -15,12 +16,14 @@ namespace ProjectHelper.Domain.Users
 
         public string Password { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
         public string CompanyId { get; set; }
 
         [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public DateTime RegistrationDate { get; set; }
 
-        public Dictionary<DeveloperSkills, SkillsLevel> Skills { get; set; } = new Dictionary<DeveloperSkills, SkillsLevel>();
+        [JsonConverter(typeof(SkillsDictionaryJsonConverter))]
+        public Dictionary<string, string> Skills { get; set; } = new();
 
         public int Experience { get; set; }
 
@@ -29,7 +32,5 @@ namespace ProjectHelper.Domain.Users
         public Dictionary<DateTime, float> Schedule { get; set; } = new();         //расписание дата-колво часов
 
         public List<string> ProjectIds { get; set; } = new();
-
-
     }
 }

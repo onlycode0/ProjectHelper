@@ -1,0 +1,67 @@
+<div class="overlay" (click)="onClose()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <form [formGroup]="developerForm" (ngSubmit)="onSubmit()" class="developer-form">
+      <h2>{{developer ? 'Редактирование разработчика' : 'Добавление разработчика'}}</h2>
+
+      <div class="form-group">
+        <label for="fullName">Имя Фамилия</label>
+        <input id="fullName" type="text" formControlName="fullName" placeholder="Введите имя и фамилию">
+      </div>
+
+      <div class="form-group">
+        <label for="login">Логин</label>
+        <input id="login" type="text" formControlName="login" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <div class="password-group">
+          <input id="password" type="text" formControlName="password" readonly>
+          <button type="button" class="generate-password" *ngIf="developer" (click)="generatePassword()">
+            <i class="fas fa-sync-alt"></i>
+            Новый пароль
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Навыки</label>
+        <div formArrayName="skills">
+          <div *ngFor="let skillGroup of skillsFormArray.controls; let i = index" [formGroupName]="i" class="skill-group">
+            <div class="skill-inputs">
+              <select formControlName="skill">
+                <option value="">Выберите навык</option>
+                <option *ngFor="let skill of skills" [value]="skill">{{skill}}</option>
+              </select>
+              <select formControlName="level">
+                <option value="">Выберите уровень</option>
+                <option *ngFor="let level of skillLevels" [value]="level">{{level}}</option>
+              </select>
+            </div>
+            <button type="button" class="remove-skill" *ngIf="skillsFormArray.length > 1" (click)="removeSkill(i)">✕</button>
+          </div>
+        </div>
+        <button type="button" class="add-skill" (click)="addSkill()">
+          <span class="plus">+</span> Добавить навык
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label for="experience">Опыт (лет)</label>
+        <input id="experience" type="number" formControlName="experience" min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="dailyCapacity">Занятость (часов в день)</label>
+        <input id="dailyCapacity" type="number" formControlName="dailyCapacity" min="1" max="24">
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="onClose()">Отмена</button>
+        <button type="submit" class="save-btn" [disabled]="!developerForm.valid">
+          {{developer ? 'Сохранить изменения' : 'Добавить'}}
+        </button>
+      </div>
+    </form>
+  </div>
+</div> 

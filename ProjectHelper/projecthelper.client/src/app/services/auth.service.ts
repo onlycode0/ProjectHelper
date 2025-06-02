@@ -26,7 +26,7 @@ interface DecodedToken {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly TOKEN_KEY = 'access_token';
+  private readonly TOKEN_KEY = 'token';
   private readonly REFRESH_TOKEN_KEY = 'refresh_token';
   private readonly EMAIL_KEY = 'user_email';
   private readonly apiUrl = environment.apiUrl;
